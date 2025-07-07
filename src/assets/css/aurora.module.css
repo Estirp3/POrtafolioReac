@@ -1,0 +1,34 @@
+/* =========================
+   Efecto Aurora/Glow con Gradiente Animado
+   ========================= */
+
+.auroraBg {
+  position: absolute;
+  inset: 0; /* Top, right, bottom, left: 0 */
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #1B3C53 0%, #456882 100%);
+  opacity: 0.34;
+  animation: auroraMove 7s linear infinite alternate;
+  filter: blur(32px) brightness(1.08);
+}
+
+@keyframes auroraMove {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(120deg, #748873 0%, #D1A980 100%);
+    filter: blur(32px) brightness(1.08);
+  }
+  50% {
+    background-position: 100% 30%;
+    background: linear-gradient(120deg, #5EABD6 0%, #FEFBC7 100%);
+    filter: blur(44px) brightness(1.15);
+  }
+  100% {
+    background-position: 0% 70%;
+    background: linear-gradient(120deg, #2F5249 0%, #437057 100%);
+    filter: blur(32px) brightness(1.09);
+  }
+}

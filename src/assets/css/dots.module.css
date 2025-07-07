@@ -1,0 +1,19 @@
+.dotsBg {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle, #fe7743 1.2px, transparent 1.2px),
+    radial-gradient(circle, #447d9b 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+  opacity: 0.15;
+  animation: dotsMove 10s linear infinite;
+}
+
+@keyframes dotsMove {
+  to { background-position: 56px 0, 28px 28px; }
+}

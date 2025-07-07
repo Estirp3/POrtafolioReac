@@ -1,0 +1,16 @@
+/* components/bentoCard.module.css */
+.bentoCard {
+  border-radius: 1.5rem; /* El radio de borde general para tus cards */
+  background: #fff; /* El color de fondo blanco que se ve en tus imágenes */
+
+  display: flex; /* Para centrar el contenido de la card */
+  flex-direction: column; /* Si el contenido va verticalmente */
+  align-items: center; /* Centra contenido horizontalmente */
+  justify-content: center; /* Centra contenido verticalmente */
+  /* TRANSITION REMOVIDA: Ya no habrá animación al pasar el mouse */
+  cursor: default; /* Cambiado a 'default' si no hay interactividad visual en hover */
+
+  width: 100%;
+  height: 100%;
+}
+

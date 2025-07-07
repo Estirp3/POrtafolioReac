@@ -1,0 +1,76 @@
+/* Tu DeveloperCard.module.css */
+.card {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background: #d7d7d7;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 100%;
+
+
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+}
+.imgWrapper {
+  flex: 0 0 350px; /* Mantén el ancho fijo para la imagen */
+  height: 100%; /* La imagen ocupará el 100% de la altura de .card */
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+.avatar {
+  width: 100%;
+  height: 100%; /* Asegúrate que la imagen ocupe el 100% del imgWrapper */
+  object-fit: cover; /* Esto es clave para que la imagen cubra el área sin deformarse */
+  object-position: center top;
+  transform: scaleX(-1) translateX(10%); /* Mantener para el efecto espejo si lo deseas */
+}
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente si hay espacio */
+  padding: 0 1.5rem 0 0.5rem; /* El padding alrededor del texto */
+}
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fe7743;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-shadow: 0 1px 12px #d8a1a1;
+}
+.info p {
+  /* ESTILO PARA EL PÁRRAFO NUEVO */
+  font-size: 1rem; /* Ajusta el tamaño de la fuente para que se vea bien con el nuevo texto */
+  line-height: 1.4; /* Espaciado entre líneas para mejor lectura */
+  color: #555; /* Un color de texto más suave que el título */
+  margin-top: 1rem; /* Espacio entre el título y el párrafo */
+}
+
+/* Responsive: */
+@media (max-width: 900px) {
+  .card {
+    flex-direction: column;
+    min-height: 320px; /* Aquí sí puedes tener un min-height para mobile */
+    border-radius: 1.5rem;
+  }
+  .imgWrapper {
+    display: none; /* La imagen se oculta en mobile */
+  }
+  .info {
+    padding: 1.2rem 0.6rem;
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .info p {
+    /* Ajustes para el párrafo en mobile */
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+}

@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --font1: "Roboto", sans-serif;
+  --font2: "Roboto Slab";
+  --darck-blue: #212529;
+  --darck-blue2: #313a44;
+  --clear-color: #eceff1;
+  --green: #223336;
+  --green2: #64858a;
+  --greenCardCV: #7bd6e4;
+  --deep-pink: #ef476f;
+  --yellow: #c8ce95;
+  --black: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font1);
+  font-size: 20px;
+}
+h2,
+h3,
+h4 {
+  font-family: var(--font1);
+  color: var(--black);
+  text-transform: uppercase;
+}
+p,
+a {
+  font-family: var(--font2);
+}
+
+body {
+  background-color: var(--darck-blue);
+  width: 100vw;
+  min-height: 100vh;
+  display: flex; /* Para centrar el container */
+  justify-content: center;
+  align-items: center; /* Centra el container verticalmente si el contenido no llena la pantalla */
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 24px 0 0 0; /* Espacio arriba. Mantenemos el tuyo. */
+  display: flex;
+  justify-content: center; /* Centra el bento-grid horizontalmente */
+  align-items: flex-start; /* Alinea el bento-grid con el top del container */
+}
+
+.bento-grid {
+  display: grid;
+  /* Columna izquierda para cards pequeñas: Mantengamos 180px de ancho para que la tarjeta de Idioma sea 180x180 */
+  grid-template-columns: 180px 1fr; 
+  gap: 0.5rem; /* Espacio entre la columna de cards pequeñas y la card principal */
+  align-items: start; /* Alinea bento-left y bento-main al inicio de su celda de grid */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-left {
+  display: grid;
+  /* CAMBIO CLAVE AQUÍ: Agrandamos la altura de la segunda fila (para la tarjeta de tema) */
+  grid-template-rows: 180px 120px; /* Primera fila 180px (cuadrada), Segunda fila (Tema) AHORA 120px de alto */
+  gap: 1rem; /* Espacio entre las tarjetas pequeñas */
+  width: 180px; /* Ancho de la columna izquierda (igual al ancho de las tarjetas) */
+  align-content: start;
+  justify-items: start;
+  padding: 0;
+  margin: 0;
+}
+
+/* Las reglas para .bento-card, .bento-main, etc., se mantienen como en la última versión.
+   La base de .bentoCard.module.css se ajustará para quitar el hover. */
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    padding: 20px 10px 0 10px;
+    align-items: flex-start;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    place-items: center;
+  }
+
+  .bento-left {
+    display: flex;
+    flex-direction: row; /* Las cards pequeñas en fila en tablet */
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    /* En responsive, las tarjetas individuales definirán su tamaño */
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px 5px 0 5px;
+  }
+  .bento-left {
+    flex-direction: column; /* Las cards pequeñas vuelven a apilarse en móvil */
+    gap: 0.8rem;
+    width: 100%;
+    align-items: center;
+  }
+}
