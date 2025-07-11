@@ -1,0 +1,28 @@
+/* src/components/ProjectsCard.module.css */
+.projectsCard {
+    background-color: var(--green2);
+    color: var(--clear-color);
+    cursor: pointer;
+    text-align: center;
+}
+
+.content {
+    /* Centrado interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--clear-color);
+}
+
+.description {
+    font-size: 1rem;
+    color: #ddd;
+    margin-top: 0.5rem;
+}

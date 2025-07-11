@@ -1,0 +1,34 @@
+/* src/components/LinkedInCard.module.css */
+.linkedinCard {
+    /* Color de LinkedIn, como pediste */
+    background-color: #0077B5;
+    /* Usamos Flexbox para centrar el contenido (el ícono/texto) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.link {
+    /* Ocupa el 100% de la tarjeta para que toda la caja sea clicable */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Quitamos el subrayado del enlace */
+    color: #ffffff;
+    /* Color del texto/ícono */
+}
+
+.logoText {
+    /* Estilo para el texto 'in' */
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.linkedinCard:hover {
+    transform: scale(1.03);
+    transition: transform 0.2s ease-in-out;
+}

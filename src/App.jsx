@@ -1,30 +1,33 @@
 // src/App.jsx
 import './assets/css/style.css'; // Asegúrate de importar tu CSS global aquí
-import DeveloperCard from './components/DeveloperCard';
-import BentoCard from './components/BentoCard';
-import LanguageSwitcherCard from './components/LanguageSwitcherCard'; // Asumiendo que tienes estos componentes
-import ThemeSwitcherCard from './components/ThemeSwitcherCard'; // Asumiendo que tienes estos componentes
+import { DeveloperCard, LanguageSwitcherCard, ThemeSwitcherCard, DescaCvCard, LinkedInCard, ProjectsCard } from './components';
 
 function App() {
   return (
     <div className="container">
+      {/* Sección Superior (Bento Grid existente) */}
       <div className="bento-grid">
         <div className="bento-left">
-          {/* Aquí tus tarjetas cuadradas y juntas */}
-          <BentoCard>
-            <LanguageSwitcherCard />
-          </BentoCard>
-          <BentoCard>
-            <ThemeSwitcherCard />
-          </BentoCard>
+          {/* Tarjetas de Idioma y Tema */}
+          <LanguageSwitcherCard />
+          <ThemeSwitcherCard />
         </div>
         <div className="bento-main">
-          {/* Aquí tu DeveloperCard, que ocupa la mayor parte del espacio */}
+          {/* Tarjeta de Desarrollador (DeveloperCard) */}
           <DeveloperCard />
         </div>
       </div>
+
+      {/* NUEVA SECCIÓN: Fila de Cajas del Medio */}
+      <div className="bento-middle-row">
+        <DescaCvCard />
+        <LinkedInCard />
+        <ProjectsCard />
+      </div>
+
+      {/* Sección Inferior (Aún por definir) */}
+      {/* ... */}
     </div>
   );
 }
-
 export default App;

@@ -1,1 +1,0 @@
-//(Skills que estás aprendiendo)
