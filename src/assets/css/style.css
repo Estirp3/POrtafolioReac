@@ -50,40 +50,34 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font1);
-  font-size: 20px;
 }
 
-h2,
-h3,
-h4 {
+h2, h3, h4 {
   font-family: var(--font1);
   color: var(--theme-text-dark);
-  /* Usamos variable de tema */
   text-transform: uppercase;
 }
 
-p,
-a {
+p, a {
   font-family: var(--font2);
   color: var(--theme-text-color);
-  /* Usamos variable de tema */
 }
 
 body {
-  /* Usamos variables de tema en body */
   background-color: var(--theme-bg-primary);
   color: var(--theme-text-color);
   width: 100vw;
   min-height: 100vh;
-
-  /* CAMBIO CLAVE: Eliminamos el display: flex y el centrado vertical */
-  /* para que el diseño se alinee a la parte superior */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-
+  
+  /* Se eliminó el display: flex y el centrado vertical para alinear al top */
   transition: background-color 0.3s, color 0.3s;
-  /* Transición para cambio de tema */
+   background-color: var(--theme-bg-primary);
+  color: var(--theme-text-color);
+  /* AÑADIMOS font-size base aquí para el body si quieres */
+  font-size: 16px; /* O el tamaño base que prefieras para el body */
+  width: 100vw;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* =========================
@@ -93,13 +87,13 @@ body {
 .container {
   width: 100vw;
   min-height: 100vh;
-  /* Espacio arriba. Ajustamos a 0.6rem para menos espacio */
-  padding: 0.6rem 0 0 0;
-
+  /* Espacio superior ajustado para que el diseño no se vea cortado */
+  padding: 1.6rem 0 0 0; 
+  
   display: flex;
-  /* Apilamos las filas (bento-grid, bento-middle-row) verticalmente */
+  /* Apilamos las filas verticalmente */
   flex-direction: column;
-  /* Alineamos el contenido al inicio (superior) */
+  /* Alineamos al inicio (superior) */
   justify-content: flex-start;
   /* Centramos horizontalmente */
   align-items: center;
@@ -130,10 +124,8 @@ body {
 .bento-middle-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  /* Ajustado el gap */
+  gap: 0.5rem; 
   margin-top: 0.5rem;
-  /* Ajustado el margen superior */
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
@@ -147,8 +139,6 @@ body {
 @media (max-width: 900px) {
   .container {
     padding: 20px 10px 0 10px;
-    /* align-items: flex-start; */
-    /* Comentado para usar align-items: center del container global */
   }
 
   .bento-grid {
@@ -167,13 +157,20 @@ body {
     margin: 0;
     padding: 0;
   }
-
+  
+  /* Ajuste para el .bento-middle-row en tablet (2 columnas) */
   .bento-middle-row {
     grid-template-columns: repeat(2, 1fr);
+    /* Aseguramos que se mantenga centrado en vistas de tablet */
+    max-width: 600px; 
+    margin: 0 auto; 
   }
 }
 
 @media (max-width: 600px) {
+ .bento-middle-row > * {
+    margin-top: 1.2rem;
+  }
   .container {
     padding: 15px 5px 0 5px;
   }
@@ -184,10 +181,13 @@ body {
     width: 100%;
     align-items: center;
   }
-
+  
+  /* Ajuste para el .bento-middle-row en móvil (1 columna) */
   .bento-middle-row {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0 1rem;
+    max-width: none; /* Quitamos max-width en móvil */
   }
+
 }

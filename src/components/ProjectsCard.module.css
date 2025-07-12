@@ -1,28 +1,51 @@
 /* src/components/ProjectsCard.module.css */
 .projectsCard {
-    background-color: var(--green2);
-    color: var(--clear-color);
-    cursor: pointer;
-    text-align: center;
+  background-color: var(--green2);
+  color: var(--clear-color);
+  cursor: pointer;
+  text-align: center;
+
+  /* Añadimos una transición para una animación suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content {
-    /* Centrado interno */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem;
+  /* Centrado interno */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
 }
 
 .title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--clear-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--clear-color);
 }
 
 .description {
-    font-size: 1rem;
-    color: #ddd;
-    margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #ddd;
+  margin-top: 0.5rem;
+}
+
+/* Añadimos la animación al pasar el mouse */
+.projectsCard:hover {
+  /* Elevamos la tarjeta ligeramente */
+  transform: translateY(-5px);
+  /* Añadimos una sombra para dar profundidad */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive: */
+
+@media (max-width: 600px) {
+  /* Reducimos el tamaño del título y descripción para que quepan en la vista móvil */
+  .title {
+    font-size: 1.2rem;
+  }
+  .description {
+    font-size: 0.8rem;
+  }
 }

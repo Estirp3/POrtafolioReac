@@ -3,38 +3,38 @@
 import React from 'react';
 import BentoCard from './BentoCard';
 import styles from './DescaCvCard.module.css';
-// Importa tu icono SVG local. Asegúrate de que la ruta sea correcta.
-import DownloadIcon from '../assets/img/descarga.svg';
+import DownloadIcon from '../assets/img/descarga.svg'; // Asegúrate de que el path sea correcto
+
+// Eliminamos la función handleDownload, ya no la necesitamos
 
 const DescaCvCard = () => {
-    const handleDownload = () => {
-        alert("Iniciando descarga del CV...");
-    };
-
-    return (
-        <BentoCard className={`${styles.cvCard} ${styles.flipContainer}`} onClick={handleDownload}>
-            <div className={styles.flipper}>
-
-                {/* Cara Frontal: Diseño original de la tarjeta */}
-                <div className={styles.front}>
-
-                    {/* 1. Título arriba */}
-                    <h3 className={styles.title}>Descargar CV</h3>
-
-                    {/* 2. Icono centralizado */}
-                    <img src={DownloadIcon} alt="Download CV Icon" className={styles.icon} />
-
-                    {/* 3. Descripción abajo */}
-                    <p className={styles.description}>Haz clic para obtener mi Currículum.</p>
-                </div>
-
-                {/* Cara Trasera: La leyenda que aparece al hacer el flip */}
-                <div className={styles.back}>
-                    <p className={styles.legend}>Descargar CV de Patricio Calderón</p>
-                </div>
-            </div>
-        </BentoCard>
-    );
+  return (
+    // CAMBIO CLAVE: Usamos una etiqueta <a> como contenedor.
+    // href apunta al archivo en la carpeta public.
+    // download indica al navegador que descargue el archivo en lugar de navegar a él.
+    <a 
+      href="/Curriculum_Patricio.pdf" // Asegúrate que el nombre de tu archivo CV sea correcto
+      download="Curriculum_PatricioCalderon.pdf" // Nombre con el que se descargará el archivo
+      className={`${styles.cvCard} ${styles.flipContainer}`}
+    >
+      
+      <div className={styles.flipper}>
+        
+        {/* Cara Frontal */}
+        <div className={styles.front}>
+          <h3 className={styles.title}>Descargar CV</h3>
+          <img src={DownloadIcon} alt="Download CV Icon" className={styles.icon} />
+          <p className={styles.description}>Haz clic para obtener mi Currículum.</p>
+        </div>
+        
+        {/* Cara Trasera */}
+        <div className={styles.back}>
+          <p className={styles.legend}>Descargar CV de Patricio Calderón</p>
+        </div>
+      </div>
+      
+    </a>
+  );
 };
 
 export default DescaCvCard;

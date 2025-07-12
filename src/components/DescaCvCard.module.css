@@ -1,78 +1,59 @@
-/* src/components/DescaCvCard.module.css */
-
-/* 1. Configuración de la animación FLIP */
-
 .flipContainer {
-    /* La tarjeta base debe permitir transformaciones 3D */
     perspective: 1000px;
-    /* Perspectiva para el efecto 3D */
     position: relative;
-    /* Aseguramos que la BentoCard no tenga padding para que el flipper ocupe todo el espacio */
     padding: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
 }
 
-/* El elemento que va a rotar (el contenido completo) */
 .flipper {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    /* Clave para el efecto 3D */
 }
 
-/* Ocultar el 'back' por defecto */
 .front,
 .back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    /* Oculta la cara trasera cuando está volteada */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    /* Mantenemos el padding interno para el contenido */
     border-radius: 1rem;
-    /* Aseguramos que las caras tengan el borde redondeado */
 }
 
-/* 2. Estilos de la Cara Frontal (.front) y del contenedor de la tarjeta (.cvCard) */
-
 .front {
-    /* Mantenemos el fondo de la cara frontal */
     background-color: var(--greenCardCV);
 }
 
 .cvCard {
-    /* Eliminamos el background-image del contenedor principal ya que se usará SVG en el JSX */
     background-image: none;
-    background-color: var(--greenCardCV);
+    background-color: var(--darck-blue);
     color: var(--black);
     cursor: pointer;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
 }
 
-/* 3. Estilos para el icono de descarga (img) */
 .icon {
     width: 60px;
-    /* Tamaño del icono */
     height: 60px;
     margin: 1rem 0;
-    /* Espacio alrededor del icono para separarlo del texto */
-    /* Puedes ajustar el color del icono si quieres que sea traslúcido o de otro color */
     opacity: 0.8;
 }
 
-/* 4. Estilos de la Cara Trasera (Back) y del Flip */
-
 .back {
-    /* Fondo oscuro para contraste al hacer flip */
     background-color: var(--darck-blue);
     color: var(--clear-color);
     transform: rotateY(180deg);
-    /* La cara trasera está inicialmente volteada */
 }
 
 .legend {
@@ -81,16 +62,11 @@
     text-align: center;
 }
 
-/* 5. Implementar el Flip en HOVER */
-
 .flipContainer:hover .flipper {
     transform: rotateY(180deg);
-    /* Al hacer hover, giramos el flipper 180 grados */
 }
 
-/* 6. Estilos de Texto (.title y .description) */
 .title {
-    /* Hacemos el título más pequeño y aseguramos espacio debajo */
     font-size: 1rem;
     font-weight: bold;
     color: var(--black);
@@ -98,8 +74,41 @@
 }
 
 .description {
-    /* Ajustamos el tamaño y color */
-    font-size: 0.8rem;
+    font-size: 1rem;         /* <-- aquí el cambio importante */
     color: var(--darck-blue);
-    margin-top: 0.5rem;
+    margin-top: 0rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+     .cvCard, .flipContainer {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        min-height: 100px;   /* <--- más pequeño en mobile si lo deseas */
+        height: 100%;
+        padding: 0;
+    }
+    .title {
+        font-size: 0.9rem;
+    }
+    .description {
+        font-size: 0.92rem;
+    }
+    .icon {
+        width: 40px;
+        height: 40px;
+        margin: 0.5rem 0;
+    }
+    .front, .back {
+        padding: 0.5rem; 
+    }
+   .cvCard, .flipContainer {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 140px;     /* <--- NUEVO: asegúrate de un alto mínimo */
+    height: 100%;
+    position: relative;
+}
 }
