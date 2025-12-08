@@ -1,9 +1,9 @@
 // src/components/ThemeSwitcherCard.jsx
 
 import React from 'react';
-import styles from './ThemeSwitcherCard.module.css';
+import styles from '../../styles/modules/ThemeSwitcherCard.module.css';
 import BentoCard from './BentoCard';
-import { useTheme } from '../context/ThemeContext.jsx';
+import { useTheme } from '../../hooks';
 
 const ThemeSwitcherCard = () => {
   const { theme, toggleTheme } = useTheme();

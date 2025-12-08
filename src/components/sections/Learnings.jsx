@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookOpen, CheckCircle2 } from 'lucide-react';
-import { useLang } from '../context/Context';
+import { useLang } from '../../hooks';
 
 const Learnings = () => {
     const { t } = useLang();

@@ -2,8 +2,9 @@
 
 import React from "react";
 import BentoCard from "./BentoCard";
-import styles from "./DescaCvCard.module.css";
-import DownloadIcon from "../assets/img/descarga.svg"; // Asegúrate de que el path sea correcto
+import styles from "../../styles/modules/DescaCvCard.module.css";
+// import DownloadIcon from "../assets/img/descarga.svg"; // Re-habilitar si el asset existe, o usar un icono de Lucide
+import { Download } from 'lucide-react';
 
 // Eliminamos la función handleDownload, ya no la necesitamos
 

@@ -1,7 +1,7 @@
 // src/components/ProjectsCard.jsx
 import React from 'react';
 import BentoCard from './BentoCard';
-import styles from './ProjectsCard.module.css';
+import styles from '../../styles/modules/ProjectsCard.module.css';
 
 const ProjectsCard = () => {
     return (

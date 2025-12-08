@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- SIN FONDO -->
+
+  <!-- Letra C -->
+  <text x="110" y="360" font-family="Times New Roman, Garamond, serif" font-size="260" fill="#000000">
+    C
+  </text>
+
+  <!-- Letra P -->
+  <text x="200" y="230" font-family="Times New Roman, Garamond, serif" font-size="220" fill="#000000">
+    P
+  </text>
+
+  <!-- Letra R -->
+  <text x="250" y="380" font-family="Times New Roman, Garamond, serif" font-size="220" fill="#000000">
+    R
+  </text>
+</svg>

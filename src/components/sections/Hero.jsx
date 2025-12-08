@@ -1,22 +1,41 @@
 import React from 'react';
 import { Download, ArrowRight, Terminal, Server, Code, Database, Monitor } from 'lucide-react';
-import { useLang } from '../context/Context';
+import { useLang } from '../../hooks';
+import profilePic from '../../assets/img/prc.png';
 
 const Hero = () => {
     const { t } = useLang();
 
     return (
         <div className="h-full flex flex-col md:flex-row gap-8 items-center justify-between overflow-hidden relative">
-            <div className="flex-1 z-10 w-full pt-4 md:pt-0">
+            <div className="absolute -left-12 -top-16 w-64 h-64 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-sky-500/20 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute left-24 bottom-0 w-72 h-72 bg-gradient-to-tr from-purple-500/15 via-indigo-500/10 to-emerald-400/10 rounded-full blur-3xl animate-pulse-slow" />
+
+            <div className="flex-1 z-10 w-full pt-4 md:pt-0 space-y-6">
+                <div className="hidden md:flex items-center gap-5 flex-wrap">
+                    <div className="relative w-44 h-44 overflow-hidden rounded-2xl border border-[var(--color-card-border)] shadow-lg bg-gradient-to-br from-white via-slate-50 to-indigo-100 dark:from-[var(--color-primary)]/25 dark:via-slate-900/85 dark:to-purple-500/25 p-2">
+                        <div className="absolute inset-0 blur-2xl opacity-30 bg-gradient-to-br from-indigo-500/30 via-transparent to-purple-500/30" />
+                        <img
+                            src={profilePic}
+                            alt="Patricio Calderon"
+                            className="relative w-full h-full object-contain rounded-xl"
+                        />
+                    </div>
+                    <div className="rounded-lg border border-[var(--color-card-border)] bg-white/90 dark:bg-[var(--color-card-bg)]/85 px-4 py-3 text-[var(--color-text-main)] text-sm shadow-sm min-w-[220px]">
+                        <div className="font-semibold">Backend / DevOps</div>
+                        <div className="text-[var(--color-text-muted)] text-xs">Sistemas fiables, CI/CD y equipos eficientes.</div>
+                    </div>
+                </div>
+
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-card-border)] text-indigo-500 text-xs font-semibold mb-6 border border-[var(--color-card-border)]">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
                     </span>
-                    Available for hire
+                    {t('available')}
                 </div>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight leading-tight bg-gradient-to-r from-[var(--color-text-main)] to-[var(--color-primary)] bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight bg-gradient-to-r from-[var(--color-text-main)] to-[var(--color-primary)] bg-clip-text text-transparent">
                     {t('heroTitle')}
                 </h1>
                 <p className="text-xl text-[var(--color-primary)] font-mono mb-6 font-bold">@Estirp3</p>

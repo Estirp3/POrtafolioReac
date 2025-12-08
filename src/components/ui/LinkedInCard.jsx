@@ -1,7 +1,7 @@
 // src/components/LinkedInCard.jsx
 import React from 'react';
 import BentoCard from './BentoCard';
-import styles from './LinkedInCard.module.css';
+import styles from '../../styles/modules/LinkedInCard.module.css';
 
 const LinkedInCard = () => {
     return (

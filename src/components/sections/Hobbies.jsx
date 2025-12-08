@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heart, Printer, PenTool } from 'lucide-react';
-import { useLang } from '../context/Context';
+import { useLang } from '../../hooks';
 
 const Hobbies = () => {
     const { t } = useLang();

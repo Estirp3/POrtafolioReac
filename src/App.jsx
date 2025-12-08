@@ -1,15 +1,17 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Stack from './components/Stack';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import Learnings from './components/Learnings';
-import Hobbies from './components/Hobbies';
-import Footer from './components/Footer';
-import { ThemeProvider, LangProvider } from './context/Context';
+import {
+  Navbar,
+  Hero,
+  About,
+  Stack,
+  Projects,
+  Experience,
+  Contact,
+  Learnings,
+  Hobbies,
+  Footer
+} from './components';
+import { ThemeProvider, LangProvider } from './context';
 
 function AppContent() {
   return (
@@ -62,8 +64,8 @@ function AppContent() {
             <Projects />
           </div>
 
-          {/* Row 5 - Contact centered */}
-          <div className="md:col-start-2 md:col-span-2 bento-card p-6" id="contact">
+          {/* Row 5 - Contact full width */}
+          <div className="md:col-span-4 bento-card p-6" id="contact">
             <Contact />
           </div>
 

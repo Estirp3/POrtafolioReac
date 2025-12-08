@@ -1,49 +1,44 @@
 import React from 'react';
-import { FolderGit2, ExternalLink, Github } from 'lucide-react';
+import { FolderGit2, Lock, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
     const projects = [
         {
             title: "Monitor de Servicios",
             role: "Arquitectura y Desarrollo",
-            desc: "Modernización de plataforma crítica. Migración de monolito a React + Vite + Spring Boot. Enfoque en performance y separación de capas.",
+            desc: "Modernizacion de plataforma critica. Migracion de monolito a React + Vite + Spring Boot. Enfoque en performance y separacion de capas.",
             tags: ["React", "Java", "Spring Boot"],
-            link: "#"
         },
         {
             title: "Orquestador AKS",
             role: "DevOps",
-            desc: "Microservicio para lanzar procesos en pods de Kubernetes con logging y métricas.",
+            desc: "Microservicio para lanzar procesos en pods de Kubernetes con logging y metricas.",
             tags: ["Kubernetes", "Go", "Docker"],
-            link: "#"
         },
         {
             title: "Integration Framework",
             role: "Backend",
             desc: "Cliente robusto para APIs internas con manejo de errores, retries y timeouts.",
             tags: ["Java", "Resilience4j", "Rest Template"],
-            link: "#"
         },
         {
             title: "Chatbox Data Assist",
             role: "Arquitectura",
-            desc: "Servicio de consulta de datos con integración a OpenAI.",
+            desc: "Servicio de consulta de datos con integracion a OpenAI.",
             tags: ["Python", "OpenAI", "FastAPI"],
-            link: "#"
         },
         {
             title: "Terraform Multiambiente",
             role: "DevOps",
-            desc: "Infraestructura como código modular para Dev, QA y Prod con manejo seguro de estado.",
+            desc: "Infraestructura como codigo modular para Dev, QA y Prod con manejo seguro de estado.",
             tags: ["Terraform", "Azure", "HCL"],
-            link: "#"
         },
         {
             title: "Landings Personales",
             role: "Fullstack",
-            desc: "Desarrollo rápido de sitios web para emprendimientos usando Vite y Tailwind.",
+            desc: "Desarrollo rapido de sitios web para emprendimientos usando Vite y Tailwind.",
             tags: ["React", "Tailwind", "Vite"],
-            link: "#"
+            link: "https://github.com/Estirp3/POrtafolioReac"
         }
     ];
 
@@ -54,9 +49,9 @@ const Projects = () => {
                     <FolderGit2 className="text-[var(--color-primary)]" />
                     Proyectos Destacados
                 </h2>
-                <a href="https://github.com/Estirp3" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--color-primary)] hover:underline flex items-center gap-1 transition-colors">
-                    Ver más en Github <ArrowIcon />
-                </a>
+                <span className="text-sm text-[var(--color-text-muted)]">
+                    Repos privados · en curso
+                </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -66,14 +61,22 @@ const Projects = () => {
                             <div className="p-3 rounded-lg bg-[var(--color-card-border)] text-[var(--color-primary)] transition-colors">
                                 <FolderGit2 size={22} />
                             </div>
-                            <div className="flex gap-3">
-                                <a href={project.link} className="text-muted hover:text-[var(--color-text-main)] transition-colors">
-                                    <Github size={20} />
+                            {project.link ? (
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-primary)]/15 border border-[var(--color-primary)] text-[var(--color-text-main)] text-xs font-semibold hover:bg-[var(--color-primary)]/25 transition-colors"
+                                >
+                                    Ver repo
+                                    <ExternalLink size={14} />
                                 </a>
-                                <a href={project.link} className="text-muted hover:text-[var(--color-text-main)] transition-colors">
-                                    <ExternalLink size={20} />
-                                </a>
-                            </div>
+                            ) : (
+                                <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-[var(--color-card-bg)] border border-[var(--color-card-border)] text-[var(--color-text-muted)] text-xs font-semibold">
+                                    <Lock size={16} />
+                                    Privado
+                                </div>
+                            )}
                         </div>
 
                         <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--color-primary)] transition-colors text-[var(--color-text-main)]">{project.title}</h3>
@@ -96,9 +99,5 @@ const Projects = () => {
         </div>
     );
 };
-
-const ArrowIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-);
 
 export default Projects;

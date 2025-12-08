@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './LanguageSwitcherCard.module.css'; // Importa su propio CSS Module
-import BentoCard from './BentoCard'; // Asumiendo que exportas BentoCard
+import styles from '../../styles/modules/LanguageSwitcherCard.module.css';
+import BentoCard from './BentoCard';
 
 const LanguageSwitcherCard = () => {
   return (

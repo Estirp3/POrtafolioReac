@@ -1,7 +1,8 @@
-import styles from "./DeveloperCard.module.css";
-import blobStyles from "../assets/css/blob.module.css";
-import auroraStyles from "../assets/css/aurora.module.css";
-import miFoto from "../assets/img/prc.png";
+import styles from "../../styles/modules/DeveloperCard.module.css";
+// import blobStyles from "../assets/css/blob.module.css";
+// import auroraStyles from "../assets/css/aurora.module.css";
+// import miFoto from "../assets/img/prc.png";
+import miFoto from "../../assets/img/prc.png";
 
 const DeveloperCard = () => (
   <section className={styles.card}>
@@ -9,7 +10,7 @@ const DeveloperCard = () => (
     <div className={blobStyles.blob2}></div>
     <div className={blobStyles.blob3}></div>
     <div className={auroraStyles.auroraBg}></div>
-    
+
     <div className={styles.imgWrapper}>
       <img src={miFoto} alt="Patricio Calderón" className={styles.avatar} />
     </div>

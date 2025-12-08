@@ -1,16 +1,54 @@
 import React from 'react';
 import { Code2, Database, Layout, Server, Cpu } from 'lucide-react';
-import { useLang } from '../context/Context';
+import { useLang } from '../../hooks';
+import htmlIcon from '../../assets/iconos/HTML5.svg';
+import cssIcon from '../../assets/iconos/CSS3.svg';
+import jsIcon from '../../assets/iconos/JavaScript.svg';
+import tailwindIcon from '../../assets/iconos/Tailwind CSS.svg';
+import tsIcon from '../../assets/iconos/TypeScript.svg';
+import javaIcon from '../../assets/iconos/Java.svg';
+import springIcon from '../../assets/iconos/Spring.svg';
+import reactIcon from '../../assets/iconos/React.svg';
+import viteIcon from '../../assets/iconos/Vite.js (1).svg';
+import dockerIcon from '../../assets/iconos/Docker.svg';
+import k8sIcon from '../../assets/iconos/Kubernetes.svg';
+import terraformIcon from '../../assets/iconos/HashiCorp Terraform.svg';
+import postgresIcon from '../../assets/iconos/PostgresSQL.svg';
+import postmanIcon from '../../assets/iconos/Postman.svg';
+import bitbucketIcon from '../../assets/iconos/BitBucket.svg';
 
 const Stack = () => {
     const { t } = useLang();
+
+    const iconMap = {
+        html5: htmlIcon,
+        css3: cssIcon,
+        javascript: jsIcon,
+        react: reactIcon,
+        vite: viteIcon,
+        tailwindcss: tailwindIcon,
+        typescript: tsIcon,
+        java: javaIcon,
+        spring: springIcon,
+        fastapi: postmanIcon,
+        postgresql: postgresIcon,
+        kubernetes: k8sIcon,
+        graphql: null,
+        nginx: null,
+        uml: null,
+        docker: dockerIcon,
+        terraform: terraformIcon,
+        githubactions: bitbucketIcon,
+    };
 
     const stackCategories = [
         {
             title: 'Frontend',
             icon: <Layout size={20} className="text-[var(--color-primary)]" />,
             techs: [
-                { name: 'HTML/CSS/JS', icon: 'html5' },
+                { name: 'HTML5', icon: 'html5' },
+                { name: 'CSS3', icon: 'css3' },
+                { name: 'JavaScript', icon: 'javascript' },
                 { name: 'React', icon: 'react' },
                 { name: 'Vite', icon: 'vite' },
                 { name: 'Tailwind', icon: 'tailwindcss' },
@@ -64,14 +102,18 @@ const Stack = () => {
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {cat.techs.map((tech, tIdx) => (
-                                <div key={tIdx} className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-full text-xs font-mono hover:border-[var(--color-primary)] transition-colors cursor-default">
-                                    <img
-                                        src={`https://techicons.dev/icons/${tech.icon}`}
-                                        alt={tech.name}
-                                        className="w-4 h-4"
-                                        onError={(e) => e.target.style.display = 'none'}
-                                    />
+                                <div
+                                    key={tIdx}
+                                    className="flex flex-col items-center gap-1 px-2.5 py-2 bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-xl text-xs font-mono hover:border-[var(--color-primary)] transition-colors cursor-default min-w-[90px] text-center"
+                                >
                                     <span className="text-[var(--color-text-main)]">{tech.name}</span>
+                                    {iconMap[tech.icon] && (
+                                        <img
+                                            src={iconMap[tech.icon]}
+                                            alt={tech.name}
+                                            className="w-6 h-6 object-contain"
+                                        />
+                                    )}
                                 </div>
                             ))}
                         </div>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
-import { useTheme, useLang } from '../context/Context';
+import { useTheme, useLang } from '../../hooks';
 
+// Navbar component
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
@@ -15,6 +16,16 @@ const Navbar = () => {
         { name: t('contact'), href: '#contact' },
     ];
 
+    const baseBtn = 'rounded-lg border transition-all duration-200 cursor-pointer';
+    const desktopIconBtn =
+        `${baseBtn} p-2.5 ${theme === 'dark'
+            ? 'bg-slate-800 text-indigo-200 border-slate-700 hover:bg-slate-700'
+            : 'bg-white text-indigo-600 border-slate-200 hover:bg-slate-50 shadow-sm'}`;
+    const desktopLangBtn =
+        `${baseBtn} px-3 py-2 flex items-center gap-2 text-sm font-bold ${theme === 'dark'
+            ? 'bg-slate-800 text-indigo-200 border-slate-700 hover:bg-slate-700'
+            : 'bg-white text-indigo-700 border-slate-200 hover:bg-slate-50 shadow-sm'}`;
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[var(--color-bg-main)] shadow-md border-b border-[var(--color-card-border)] dark:border-b-2 dark:border-slate-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +34,7 @@ const Navbar = () => {
                         <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
                             Patricio Calderón
                         </span>
-                        <span className="hidden sm:block text-muted">|</span>
+                        <span className="hidden sm:block text-[var(--color-text-muted)]">|</span>
                         <span className="hidden sm:block text-indigo-500 font-mono">Estirp3</span>
                     </div>
 
@@ -33,7 +44,7 @@ const Navbar = () => {
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    className="text-slate-900 dark:text-slate-200 hover:text-[var(--color-primary)] font-semibold transition-colors text-sm"
+                                    className="nav-link hover:text-[var(--color-primary)] transition-colors duration-300 text-sm"
                                 >
                                     {link.name}
                                 </a>
@@ -44,7 +55,7 @@ const Navbar = () => {
                     <div className="hidden md:flex items-center gap-3">
                         <button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-white transition-all duration-200 cursor-pointer shadow-sm border border-slate-200 dark:border-slate-600"
+                            className={desktopIconBtn}
                             aria-label="Toggle theme"
                         >
                             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -52,7 +63,7 @@ const Navbar = () => {
 
                         <button
                             onClick={() => setLang(lang === 'ES' ? 'EN' : 'ES')}
-                            className="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-white transition-all duration-200 flex items-center gap-2 text-sm font-bold cursor-pointer shadow-sm border border-slate-200 dark:border-slate-600"
+                            className={desktopLangBtn}
                             aria-label="Change language"
                         >
                             <Globe size={16} />
@@ -63,7 +74,7 @@ const Navbar = () => {
                     <div className="-mr-2 flex md:hidden gap-2">
                         <button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-white transition-all duration-200 shadow-sm border border-slate-200 dark:border-slate-600"
+                            className={desktopIconBtn}
                             aria-label="Toggle theme"
                         >
                             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -71,7 +82,7 @@ const Navbar = () => {
 
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-slate-900 dark:text-slate-200 hover:bg-[var(--color-card-border)] focus:outline-none"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-[var(--color-text-main)] dark:text-slate-200 hover:bg-[var(--color-card-border)] focus:outline-none"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -87,7 +98,7 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-slate-900 dark:text-slate-200 hover:bg-[var(--color-card-border)] hover:text-[var(--color-primary)] block px-3 py-2 rounded-md text-base font-medium"
+                                className="nav-link hover:text-[var(--color-primary)] transition-colors duration-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-[var(--color-card-border)]/40"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
@@ -98,7 +109,7 @@ const Navbar = () => {
                                 setLang(lang === 'ES' ? 'EN' : 'ES');
                                 setIsOpen(false);
                             }}
-                            className="w-full text-left text-slate-900 dark:text-slate-200 hover:bg-[var(--color-card-border)] block px-3 py-2 rounded-md text-base font-medium"
+                            className="w-full text-left text-[var(--color-text-main)] dark:text-slate-200 hover:bg-[var(--color-card-border)] block px-3 py-2 rounded-md text-base font-medium"
                         >
                             Cambiar Idioma ({lang})
                         </button>

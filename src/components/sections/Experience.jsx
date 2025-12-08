@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, Calendar } from 'lucide-react';
-import { useLang } from '../context/Context';
+import { useLang } from '../../hooks';
 
 const Experience = () => {
     const { t } = useLang();

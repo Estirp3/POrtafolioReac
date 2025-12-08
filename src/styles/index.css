@@ -53,6 +53,9 @@ body {
 }
 
 @layer components {
+  .text-muted {
+    color: var(--color-text-muted);
+  }
   .btn-primary {
     @apply px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] font-medium rounded-lg shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 cursor-pointer;
   }
