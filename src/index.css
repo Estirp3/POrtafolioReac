@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  /* Light Theme (Designed for high contrast and eye comfort) */
+  --color-bg-main: #f8fafc;
+  /* Slate 50 - Very soft white/grey */
+  --color-text-main: #0f172a;
+  /* Slate 900 - Very dark */
+  --color-text-muted: #334155;
+  /* Slate 700 - Distinct grey */
+
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  /* High opacity */
+  --color-card-border: #cbd5e1;
+  /* Slate 300 - Distinct border */
+  --color-card-hover-border: #4f46e5;
+  /* Indigo 600 */
+  --color-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+  --color-primary: #4f46e5;
+  /* Indigo 600 */
+  --color-primary-text: #ffffff;
+}
+
+.dark {
+  /* Dark Theme */
+  --color-bg-main: #020617;
+  /* Slate 950 (Almost Black but not pure) to reduce harshness */
+  --color-text-main: #f8fafc;
+  /* Slate 50 */
+  --color-text-muted: #cbd5e1;
+  /* Slate 300 */
+
+  /* Clear differentiation for cards */
+  --color-card-bg: rgba(30, 41, 59, 0.4);
+  /* Slate 800 with transparency */
+  --color-card-border: #334155;
+  /* Slate 700 - Visible border */
+  --color-card-hover-border: #818cf8;
+  /* Indigo 400 */
+  --color-card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+
+  --color-primary: #818cf8;
+  /* Indigo 400 - Lighter for accessibility on black */
+  --color-primary-text: #ffffff;
+}
+
+/* Apply theme background to body */
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] font-medium rounded-lg shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-[var(--color-card-bg)] text-[var(--color-text-main)] font-medium rounded-lg border border-[var(--color-card-border)] hover:bg-[var(--color-card-border)] transition-all duration-300 flex items-center gap-2 cursor-pointer;
+  }
+
+  .tech-badge {
+    @apply px-3 py-1 bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-full text-xs font-mono text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors cursor-default;
+  }
+
+  .bento-card {
+    @apply bg-[var(--color-card-bg)] border border-[var(--color-card-border)] backdrop-blur-xl rounded-2xl shadow-sm transition-all duration-300 hover:shadow-md;
+  }
+
+  .bg-grid-pattern {
+    background-color: transparent;
+    background-image:
+      linear-gradient(to right, var(--color-card-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-card-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-main);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-card-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary);
+  }
+}
+
+/* Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
