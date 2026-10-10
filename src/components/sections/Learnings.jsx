@@ -1,29 +1,44 @@
 import React from 'react';
-import { BookOpen, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Sparkles } from 'lucide-react';
 import { useLang } from '../../hooks';
 
 const Learnings = () => {
     const { t } = useLang();
-    const topics = [
-        "Terraform Avanzado",
-        "Kubernetes Patterns",
-        "Arquitectura Limpia",
-        "System Design"
+    const topics = Array.isArray(t('learningTopics')) ? t('learningTopics') : [
+        "Agentes Autónomos & MCP",
+        "RAG Avanzado & Embeddings",
+        "Kubernetes Patterns (AKS)",
+        "System Design Escalable"
     ];
 
     return (
-        <div className="h-full">
-            <h2 className="text-lg font-bold text-[var(--color-text-main)] mb-3 flex items-center gap-2">
-                <BookOpen className="text-[var(--color-primary)]" size={18} />
-                {t('learningsTitle')}
-            </h2>
-            <div className="flex flex-col gap-2">
-                {topics.map((topic, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-[var(--color-text-muted)] bg-[var(--color-bg-main)]/50 p-2.5 rounded-lg border border-[var(--color-card-border)]">
-                        <CheckCircle2 size={14} className="text-[var(--color-primary)] flex-shrink-0" />
-                        <span className="text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis">{topic}</span>
+        <div className="h-full flex flex-col justify-between">
+            <div>
+                <h2 className="text-base sm:text-lg font-bold font-display text-slate-900 dark:text-white mb-3.5 flex items-center gap-2">
+                    <div className="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                        <BookOpen size={16} />
                     </div>
-                ))}
+                    {t('learningsTitle')}
+                </h2>
+
+                <div className="space-y-2">
+                    {topics.map((topic, idx) => (
+                        <div 
+                            key={idx} 
+                            className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 bg-[var(--color-bg-subtle)] p-2.5 rounded-xl border border-[var(--color-card-border)] hover:border-[var(--color-primary)] transition-colors group cursor-default shadow-xs"
+                        >
+                            <Sparkles size={13} className="text-purple-500 dark:text-purple-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                            <span className="text-xs font-semibold leading-tight">
+                                {topic}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            
+            <div className="mt-3 pt-2.5 border-t border-[var(--color-card-border)]/60 text-[11px] font-mono text-slate-600 dark:text-slate-400 flex items-center justify-between">
+                <span>Investigación continua</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">● 2026</span>
             </div>
         </div>
     );

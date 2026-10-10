@@ -1,38 +1,52 @@
 import React from 'react';
-import { User } from 'lucide-react';
+import { User, Brain, Server, Cloud } from 'lucide-react';
 import { useLang } from '../../hooks';
 
 const About = () => {
     const { t } = useLang();
+    const pills = Array.isArray(t('aboutPills')) ? t('aboutPills') : [];
 
     return (
-        <div className="h-full flex flex-col gap-4">
-            <div className="flex items-start justify-between gap-4">
-                <h2 className="text-2xl font-bold flex items-center gap-2 text-[var(--color-text-main)]">
-                    <User className="text-[var(--color-primary)]" />
-                    {t('aboutTitle')}
-                </h2>
-            </div>
-
-            <div className="flex flex-col gap-6 flex-1">
-                <div className="space-y-4 text-[var(--color-text-muted)] text-sm md:text-base leading-relaxed max-w-3xl md:pl-3">
-                    <p>
-                        Ingeniero de software enfocado en backend con Java y Spring. Diseño plataformas sólidas y observables,
-                        priorizando soluciones simples y mantenibles que resuelven problemas reales.
-                    </p>
-                    <p>
-                        En frontend, disfruto maquetando experiencias rápidas y accesibles con React, Vite y Tailwind,
-                        cuidando rendimiento y consistencia de componentes.
-                    </p>
-                    <p>
-                        Experiencia armando pipelines, contenedores y despliegues en AKS; explorando IaC y buenas prácticas
-                        DevOps para equipos distribuidos.
-                    </p>
+        <div className="h-full flex flex-col justify-between gap-5">
+            <div>
+                {/* Header */}
+                <div className="flex items-center justify-between gap-4 mb-4">
+                    <h2 className="text-2xl font-bold font-display flex items-center gap-2.5 text-slate-900 dark:text-white">
+                        <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                            <User size={20} />
+                        </div>
+                        {t('aboutTitle')}
+                    </h2>
+                    <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--color-bg-subtle)] border border-[var(--color-card-border)] text-slate-600 dark:text-slate-400 font-medium">
+                        Fullstack + DevOps + AI
+                    </span>
                 </div>
 
+                {/* Paragraphs */}
+                <div className="space-y-3.5 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p className="flex items-start gap-2.5">
+                        <Server size={18} className="text-indigo-600 dark:text-indigo-400 mt-1 flex-shrink-0" />
+                        <span>{t('aboutDesc1')}</span>
+                    </p>
+                    <p className="flex items-start gap-2.5">
+                        <Brain size={18} className="text-purple-600 dark:text-purple-400 mt-1 flex-shrink-0" />
+                        <span>{t('aboutDesc2')}</span>
+                    </p>
+                    <p className="flex items-start gap-2.5">
+                        <Cloud size={18} className="text-sky-600 dark:text-sky-400 mt-1 flex-shrink-0" />
+                        <span>{t('aboutDesc3')}</span>
+                    </p>
+                </div>
+            </div>
+
+            {/* Capability Pills */}
+            <div className="pt-2 border-t border-[var(--color-card-border)]">
                 <div className="flex flex-wrap gap-2">
-                    {['Arquitectura ligera', 'SRE mindset', 'Mentoría y pairing', 'Documentación viva'].map((chip) => (
-                        <span key={chip} className="px-3 py-1 rounded-full bg-[var(--color-card-bg)] border border-[var(--color-card-border)] text-xs font-semibold">
+                    {pills.map((chip, idx) => (
+                        <span 
+                            key={idx} 
+                            className="px-3 py-1 rounded-full bg-[var(--color-bg-subtle)] border border-[var(--color-card-border)] hover:border-[var(--color-primary)] text-xs font-semibold text-slate-800 dark:text-slate-200 transition-colors cursor-default"
+                        >
                             {chip}
                         </span>
                     ))}

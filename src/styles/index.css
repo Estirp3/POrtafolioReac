@@ -1,89 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  /* Light Theme (Designed for high contrast and eye comfort) */
-  --color-bg-main: #f8fafc;
-  /* Slate 50 - Very soft white/grey */
-  --color-text-main: #0f172a;
-  /* Slate 900 - Very dark */
-  --color-text-muted: #334155;
-  /* Slate 700 - Distinct grey */
+/* Crucial: Configure Tailwind v4 to respect class-based dark mode (.dark) instead of system prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --color-card-bg: rgba(255, 255, 255, 0.95);
-  /* High opacity */
-  --color-card-border: #cbd5e1;
-  /* Slate 300 - Distinct border */
-  --color-card-hover-border: #4f46e5;
-  /* Indigo 600 */
-  --color-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+:root {
+  /* Light Theme - Clean Apple / Vercel style (High Contrast & Sharp Definition) */
+  --color-bg-main: #f8fafc;
+  --color-bg-subtle: #f1f5f9;
+  --color-text-main: #0f172a;
+  --color-text-muted: #334155;
+  --color-text-subtle: #64748b;
+
+  --color-card-bg: #ffffff;
+  --color-card-border: #e2e8f0;
+  --color-card-hover-border: #6366f1;
+  --color-card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 
   --color-primary: #4f46e5;
-  /* Indigo 600 */
+  --color-primary-hover: #4338ca;
   --color-primary-text: #ffffff;
+  --color-accent-ai: #7c3aed;
+  --color-accent-emerald: #059669;
 }
 
 .dark {
-  /* Dark Theme */
-  --color-bg-main: #020617;
-  /* Slate 950 (Almost Black but not pure) to reduce harshness */
+  /* Dark Theme - Deep Cinema / OLED slate with indigo glow */
+  --color-bg-main: #07090e;
+  --color-bg-subtle: #0d111a;
   --color-text-main: #f8fafc;
-  /* Slate 50 */
-  --color-text-muted: #cbd5e1;
-  /* Slate 300 */
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
 
-  /* Clear differentiation for cards */
-  --color-card-bg: rgba(30, 41, 59, 0.4);
-  /* Slate 800 with transparency */
-  --color-card-border: #334155;
-  /* Slate 700 - Visible border */
-  --color-card-hover-border: #818cf8;
-  /* Indigo 400 */
-  --color-card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  --color-card-bg: rgba(13, 17, 26, 0.85);
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-card-hover-border: rgba(129, 140, 248, 0.5);
+  --color-card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
 
   --color-primary: #818cf8;
-  /* Indigo 400 - Lighter for accessibility on black */
+  --color-primary-hover: #6366f1;
   --color-primary-text: #ffffff;
+  --color-accent-ai: #a78bfa;
+  --color-accent-emerald: #34d399;
 }
 
-/* Apply theme background to body */
+/* Base Body Styles */
 body {
   background-color: var(--color-bg-main);
   color: var(--color-text-main);
-  transition: background-color 0.5s ease, color 0.5s ease;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 @layer components {
   .text-muted {
     color: var(--color-text-muted);
   }
+
   .btn-primary {
-    @apply px-4 py-2 bg-[var(--color-primary)] text-[var(--color-primary-text)] font-medium rounded-lg shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 cursor-pointer;
+    @apply px-5 py-2.5 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-700 text-white font-semibold rounded-xl shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2 cursor-pointer;
   }
 
   .btn-secondary {
-    @apply px-4 py-2 bg-[var(--color-card-bg)] text-[var(--color-text-main)] font-medium rounded-lg border border-[var(--color-card-border)] hover:bg-[var(--color-card-border)] transition-all duration-300 flex items-center gap-2 cursor-pointer;
+    @apply px-5 py-2.5 bg-[var(--color-card-bg)] text-[var(--color-text-main)] font-semibold rounded-xl border border-[var(--color-card-border)] hover:border-[var(--color-primary)] hover:bg-[var(--color-bg-subtle)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm;
   }
 
   .tech-badge {
-    @apply px-3 py-1 bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-full text-xs font-mono text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors cursor-default;
+    @apply px-3 py-1 bg-[var(--color-bg-subtle)] border border-[var(--color-card-border)] rounded-lg text-xs font-mono text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors cursor-default;
   }
 
   .bento-card {
-    @apply bg-[var(--color-card-bg)] border border-[var(--color-card-border)] backdrop-blur-xl rounded-2xl shadow-sm transition-all duration-300 hover:shadow-md;
+    position: relative;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: 1.5rem;
+    box-shadow: var(--color-card-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.25s ease, 
+                box-shadow 0.25s ease;
   }
 
+  .bento-card:hover {
+    border-color: var(--color-card-hover-border);
+    box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Grid Background Pattern with subtle contrast */
   .bg-grid-pattern {
     background-color: transparent;
     background-image:
       linear-gradient(to right, var(--color-card-border) 1px, transparent 1px),
       linear-gradient(to bottom, var(--color-card-border) 1px, transparent 1px);
-    background-size: 24px 24px;
-    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 10%, black 40%, transparent 100%);
   }
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
   }
 
   ::-webkit-scrollbar-track {
@@ -92,7 +118,7 @@ body {
 
   ::-webkit-scrollbar-thumb {
     background-color: var(--color-card-border);
-    border-radius: 4px;
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -104,9 +130,8 @@ body {
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -114,21 +139,30 @@ body {
 }
 
 .animate-slide-up {
-  animation: slide-up 0.5s ease-out forwards;
+  animation: slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes pulse-slow {
-
-  0%,
-  100% {
-    opacity: 0.4;
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
   }
-
   50% {
-    opacity: 0.7;
+    opacity: 0.5;
+    transform: scale(1.04);
   }
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 4s ease-in-out infinite;
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+/* Respect user accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

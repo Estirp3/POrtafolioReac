@@ -2,113 +2,339 @@ export const labels = {
     ES: {
         // Navbar
         about: "Sobre mí",
-        stack: "Stack",
+        stack: "Stack & IA",
         projects: "Proyectos",
         exp: "Experiencia",
         contact: "Contacto",
 
         // Hero
-        heroTitle: "Desarrollador Fullstack & DevOps",
-        heroDesc: "Creo soluciones escalables, rápidas y mantenibles. Me enfoco en arquitectura moderna, microservicios, integración continua y entrega automatizada.",
+        heroTitle: "Desarrollador Fullstack, DevOps & AI Solutions",
+        heroRoleBadge: "Arquitectura Cloud • Microservicios • Agentes IA",
+        heroDesc: "Diseño y desarrollo plataformas escalables de extremo a extremo, infraestructura automatizada en la nube e integraciones avanzadas con Inteligencia Artificial y agentes autónomos.",
         viewProjects: "Ver proyectos",
         downloadCV: "Descargar CV",
-        available: "Disponible para trabajar",
+        available: "Disponible para proyectos & consultoría",
+        aiStatus: "Agentes IA: Operativos",
+        clusterStatus: "Infraestructura Cloud: Saludable",
 
         // About
         aboutTitle: "Sobre mí",
-        aboutDesc1: "Ingeniero de software enfocado en backend con Java y Spring. Diseño plataformas sólidas y observables, priorizando soluciones simples y mantenibles que resuelven problemas reales.",
-        aboutDesc2: "En frontend, disfruto maquetando experiencias rápidas y accesibles con React, Vite y Tailwind, cuidando rendimiento y consistencia de componentes.",
-        aboutDesc3: "Experiencia armando pipelines, contenedores y despliegues en AKS; explorando IaC y buenas prácticas DevOps para equipos distribuidos.",
-        aboutDesc4: "Siempre estoy buscando optimizar procesos, documentar conocimientos y aprender nuevas tecnologías.",
+        aboutDesc1: "Ingeniero de software especializado en diseñar soluciones robustas y escalables con Java (Spring Boot) y Node.js / Express en backend, priorizando alta disponibilidad, seguridad y código limpio.",
+        aboutDesc2: "En constante evolución hacia la Inteligencia Artificial aplicada: desarrollo flujos con agentes autónomos, integración de LLMs (OpenAI, Claude, DeepSeek), prompts estructurados y arquitecturas RAG para resolver problemas complejos de automatización.",
+        aboutDesc3: "Experiencia integral en frontend moderno con React, TypeScript y Tailwind CSS, complementado con DevOps: orquestación en Kubernetes (AKS), contenedores Docker e Infraestructura como Código (IaC) con Terraform.",
+        aboutPills: [
+            "Arquitectura Cloud & Microservicios",
+            "Desarrollo con IA & Agentes",
+            "Kubernetes (AKS) & Docker",
+            "Backend Java & Node.js",
+            "Frontend React & TypeScript",
+            "Infraestructura con Terraform"
+        ],
 
         // Experience
-        expTitle: "Experiencia",
+        expTitle: "Experiencia Profesional",
         roles: [
-            { title: "Desarrollador Fullstack & DevOps", company: "Actualidad", period: "Presente", desc: "Participación en proyectos de arquitectura y microservicios. Implementación de pipelines de CI/CD y despliegue en Azure." },
-            { title: "Arquitecto de Software", company: "Trayectoria", period: "2020 - 2023", desc: "Diseño de soluciones backend y modernización de plataformas legacy. Liderazgo técnico en migraciones a la nube." },
-            { title: "Backend Developer", company: "Inicios", period: "2018 - 2020", desc: "Desarrollo de servicios REST, integración con bases de datos y optimización de consultas." }
+            {
+                title: "Senior Fullstack, DevOps & AI Developer",
+                company: "Proyectos Especializados & Freelance",
+                period: "2024 - Presente",
+                desc: "Liderazgo técnico en desarrollo integral de plataformas como Metropolitan Fashion Chile (arquitectura PERN contenerizada con roles RBAC). Implementación de agentes de IA y automatizaciones cloud en Azure y DigitalOcean."
+            },
+            {
+                title: "Arquitecto de Software & Tech Lead",
+                company: "Trayectoria Tecnológica",
+                period: "2021 - 2024",
+                desc: "Diseño de soluciones backend empresariales, modernización de monolitos hacia microservicios desacoplados y gobernanza de infraestructura CI/CD en Kubernetes."
+            },
+            {
+                title: "Backend Engineer",
+                company: "Inicios Profesionales",
+                period: "2018 - 2021",
+                desc: "Desarrollo de servicios REST de alto rendimiento en Java y Spring, optimización de bases de datos relacionales y monitoreo de integración continua."
+            }
         ],
-        certifications: "Certificaciones en progreso",
+        certifications: "Certificaciones & Enfoque",
+        certList: ["Azure AZ-104", "Azure AZ-204", "DevOps AZ-400", "AI Agent Workflows"],
 
         // Stack
-        stackTitle: "Stack Tecnológico",
+        stackTitle: "Stack Tecnológico & Inteligencia Artificial",
 
         // Projects
         projectsTitle: "Proyectos Destacados",
-        githubLink: "Ver más en Github",
+        projectsSubtitle: "Producción • Innovación • Arquitectura",
+        featuredBadge: "PROYECTO DESTACADO",
+        privateBadge: "Repo Privado",
+        publicBadge: "Código Abierto",
+        githubLink: "Ver más en GitHub",
         projectList: [
-            { title: "Monitor de Servicios", role: "Arquitectura y Desarrollo", desc: "Modernización de plataforma crítica. Migración de monolito a React + Vite + Spring Boot.", tags: ["React", "Java", "Spring Boot"] },
-            { title: "Orquestador AKS", role: "DevOps", desc: "Microservicio para lanzar procesos en pods de Kubernetes con logging y métricas.", tags: ["K8s", "Go", "Docker"] },
-            { title: "Integration Framework", role: "Backend", desc: "Cliente robusto para APIs internas con manejo de errores, retries y timeouts.", tags: ["Java", "Resilience4j"] },
-            { title: "Chatbox Data Assist", role: "Arquitectura", desc: "Servicio de consulta de datos con integración a OpenAI.", tags: ["Python", "OpenAI"] },
-            { title: "Terraform Multiambiente", role: "DevOps", desc: "Infraestructura como código modular para Dev, QA y Prod con manejo seguro de estado.", tags: ["Terraform", "Azure"] },
-            { title: "Landings Personales", role: "Fullstack", desc: "Desarrollo rápido de sitios web para emprendimientos usando Vite y Tailwind.", tags: ["React", "Tailwind"] }
+            {
+                id: "metropolitan",
+                title: "Metropolitan Fashion Chile",
+                role: "Arquitectura Fullstack & DevOps",
+                desc: "Plataforma integral para gestión y curaduría de modelos y diseñadores del prestigioso evento Metropolitan Fashion Chile (Santiago Haute Couture). Incluye portal público de postulaciones, panel de control administrativo multi-rol (RBAC: Master, Coordinator, Designer, Staff), base de datos relacional y despliegue contenerizado con Docker y Nginx.",
+                tags: ["React 18", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Docker", "Tailwind CSS"],
+                featured: true,
+                badge: "En Producción",
+                metric: "Portal Público + Control Core RBAC",
+                link: null
+            },
+            {
+                id: "ai-assist",
+                title: "Chatbox Data Assist & Agentes IA",
+                role: "AI Engineering & Backend",
+                desc: "Sistema inteligente de consulta y extracción analítica de datos utilizando modelos de OpenAI y orquestación de agentes con Python. Implementa recuperación contextual (RAG), validación de esquemas y automatización de flujos de trabajo.",
+                tags: ["Python", "OpenAI API", "LangChain", "FastAPI", "RAG", "Agentes Autónomos"],
+                featured: true,
+                badge: "AI Powered",
+                metric: "Pipeline LLM & RAG",
+                link: null
+            },
+            {
+                id: "monitor",
+                title: "Monitor de Servicios Críticos",
+                role: "Arquitectura y Desarrollo",
+                desc: "Modernización de plataforma empresarial. Migración de monolito legacy a una arquitectura modular con frontend reactivo en React + Vite y microservicios Java Spring Boot con observabilidad integral.",
+                tags: ["React", "Java", "Spring Boot", "Microservicios", "Observabilidad"],
+                featured: false,
+                badge: "Microservicios",
+                metric: "Monolito a Cloud Native",
+                link: null
+            },
+            {
+                id: "aks",
+                title: "Orquestador de Procesos AKS",
+                role: "DevOps & Cloud Native",
+                desc: "Microservicio especializado en lanzamiento, gobernanza y monitoreo dinámico de procesos en pods aislados de Azure Kubernetes Service (AKS), con telemetría y logging centralizado.",
+                tags: ["Kubernetes (AKS)", "Go", "Docker", "Azure", "Cloud Native"],
+                featured: false,
+                badge: "DevOps",
+                metric: "Aprovisionamiento en Pods",
+                link: null
+            },
+            {
+                id: "terraform",
+                title: "Infraestructura Terraform Multiambiente",
+                role: "Infraestructura como Código (IaC)",
+                desc: "Módulos de Terraform estructurados para aprovisionamiento automatizado y consistente de recursos en Azure a través de ambientes Dev, QA y Producción con gestión segura de estado.",
+                tags: ["Terraform", "Azure", "IaC", "HCL", "DevOps"],
+                featured: false,
+                badge: "IaC",
+                metric: "Dev / QA / Prod Automatizado",
+                link: null
+            },
+            {
+                id: "framework",
+                title: "Resilient Integration Framework",
+                role: "Backend Architecture",
+                desc: "Cliente robusto para intercomunicación entre APIs internas con patrones avanzados de tolerancia a fallos: Circuit Breaker con Resilience4j, retries exponenciales y timeouts configurables.",
+                tags: ["Java", "Resilience4j", "Spring Boot", "APIs REST"],
+                featured: false,
+                badge: "Resiliencia",
+                metric: "Zero Downtime Integrations",
+                link: null
+            },
+            {
+                id: "landings",
+                title: "Bento Design Portfolio & Web Apps",
+                role: "Frontend Engineering",
+                desc: "Diseño y desarrollo de sitios web y aplicaciones de alto impacto con diseño modular Bento Grid, rendimiento optimizado (100 Lighthouse) y micro-interacciones cinematográficas.",
+                tags: ["React", "Tailwind CSS", "Vite", "Bento Grid", "UI/UX"],
+                featured: false,
+                badge: "Frontend",
+                metric: "Ultra-rápido & Accesible",
+                link: "https://github.com/Estirp3/POrtafolioReac"
+            }
         ],
 
         // Learnings & Hobbies
-        learningsTitle: "Aprendiendo",
-        hobbiesTitle: "Hobbies",
-        hobbiesList: ["Impresión 3D & Maker", "Creación de contenido"],
+        learningsTitle: "Áreas de Investigación & Aprendizaje",
+        learningTopics: [
+            "Agentes Autónomos & MCP (Model Context Protocol)",
+            "RAG Avanzado & Embeddings Vectoriales",
+            "Kubernetes Patterns & Arquitectura AKS",
+            "System Design & Escalabilidad Masiva"
+        ],
+        hobbiesTitle: "Intereses & Hobbies",
+        hobbiesList: [
+            { title: "Impresión 3D & Maker", desc: "Modelado y prototipado físico" },
+            { title: "Creación de Contenido Tech", desc: "Divulgación sobre IA & desarrollo" }
+        ],
 
         // Contact
-        contactTitle: "Contacto",
-        contactDesc: "¿Tienes un proyecto interesante o quieres hablar de arquitectura de software? Hablemos.",
-        letsTalk: "Hablemos"
+        contactTitle: "Contacto & Colaboración",
+        contactHeadline: "¿Tienes un desafío de arquitectura, desarrollo web o Inteligencia Artificial?",
+        contactDesc: "Hablemos sobre cómo puedo aportar valor técnico sólido: desde la creación de plataformas completas y microservicios hasta la integración de agentes inteligentes y DevOps en la nube.",
+        responseTime: "Respondo usualmente en menos de 24 horas.",
+        letsTalk: "Iniciar conversación",
+        contactTags: ["Arquitectura Fullstack", "Integraciones con IA", "Metropolitan Project", "Backend Java / Node", "Kubernetes & DevOps"]
     },
     EN: {
         // Navbar
         about: "About Me",
-        stack: "Tech Stack",
+        stack: "Stack & AI",
         projects: "Projects",
         exp: "Experience",
         contact: "Contact",
 
         // Hero
-        heroTitle: "Fullstack Developer & DevOps",
-        heroDesc: "I build scalable, fast, and maintainable solutions. I focus on modern architecture, microservices, continuous integration, and automated delivery.",
-        viewProjects: "View Projects",
+        heroTitle: "Fullstack Developer, DevOps & AI Solutions",
+        heroRoleBadge: "Cloud Architecture • Microservices • AI Agents",
+        heroDesc: "I architect and build end-to-end scalable platforms, automated cloud infrastructure, and state-of-the-art Artificial Intelligence integrations with autonomous agents.",
+        viewProjects: "Explore Projects",
         downloadCV: "Download CV",
-        available: "Available for hire",
+        available: "Available for new projects & consulting",
+        aiStatus: "AI Agents: Operational",
+        clusterStatus: "Cloud Infra: Healthy",
 
         // About
         aboutTitle: "About Me",
-        aboutDesc1: "I am passionate about technology with solid experience designing and developing robust backend solutions using Java and Spring Boot. I focus on creating systems that are not only functional but efficient and scalable.",
-        aboutDesc2: "On the frontend, I enjoy building modern and reactive interfaces with React and Vite, paying special attention to user experience and component reusability.",
-        aboutDesc3: "My profile is strongly complemented by DevOps skills. I have experience implementing containers with Docker, orchestrating services in Kubernetes (AKS), and automating infrastructure with Terraform.",
-        aboutDesc4: "I am always looking to optimize processes, document knowledge, and learn new technologies to face complex challenges.",
+        aboutDesc1: "Software engineer specialized in building robust, scalable solutions using Java (Spring Boot) and Node.js / Express in the backend, prioritizing high availability, security, and clean code.",
+        aboutDesc2: "Constantly evolving into applied Artificial Intelligence: building autonomous agent workflows, integrating LLMs (OpenAI, Claude, DeepSeek), structured prompt engineering, and RAG architectures to automate complex business logic.",
+        aboutDesc3: "End-to-end expertise in modern frontend development with React, TypeScript, and Tailwind CSS, backed by strong DevOps skills: Kubernetes (AKS) orchestration, Docker containers, and Infrastructure as Code with Terraform.",
+        aboutPills: [
+            "Cloud Architecture & Microservices",
+            "AI Engineering & Agents",
+            "Kubernetes (AKS) & Docker",
+            "Java & Node.js Backend",
+            "React & TypeScript Frontend",
+            "Infrastructure as Code (Terraform)"
+        ],
 
         // Experience
-        expTitle: "Experience",
+        expTitle: "Work Experience",
         roles: [
-            { title: "Fullstack Developer & DevOps", company: "Current", period: "Present", desc: "Participation in architecture and microservices projects. Implementation of CI/CD pipelines and deployment in Azure." },
-            { title: "Software Architect", company: "Previous", period: "2020 - 2023", desc: "Backend solution design and legacy platform modernization. Technical leadership in cloud migrations." },
-            { title: "Backend Developer", company: "Early Career", period: "2018 - 2020", desc: "Development of REST services, database integration, and query optimization." }
+            {
+                title: "Senior Fullstack, DevOps & AI Developer",
+                company: "Specialized Projects & Freelance",
+                period: "2024 - Present",
+                desc: "Technical leadership on full-lifecycle platforms like Metropolitan Fashion Chile (containerized PERN stack with RBAC roles). Implementing autonomous AI workflows and automated cloud deployments on Azure and DigitalOcean."
+            },
+            {
+                title: "Software Architect & Tech Lead",
+                company: "Career Milestones",
+                period: "2021 - 2024",
+                desc: "Architected enterprise backend solutions, led monolith-to-microservices migrations, and governed continuous delivery infrastructure on Kubernetes."
+            },
+            {
+                title: "Backend Engineer",
+                company: "Early Career",
+                period: "2018 - 2021",
+                desc: "Developed high-throughput REST APIs in Java and Spring, optimized relational database query performance, and established foundational CI pipelines."
+            }
         ],
-        certifications: "Certifications in progress",
+        certifications: "Certifications & Core Focus",
+        certList: ["Azure AZ-104", "Azure AZ-204", "DevOps AZ-400", "AI Agent Workflows"],
 
         // Stack
-        stackTitle: "Tech Stack",
+        stackTitle: "Tech Stack & Artificial Intelligence",
 
         // Projects
         projectsTitle: "Featured Projects",
-        githubLink: "View more on Github",
+        projectsSubtitle: "Production • Innovation • Architecture",
+        featuredBadge: "FEATURED PROJECT",
+        privateBadge: "Private Repo",
+        publicBadge: "Open Source",
+        githubLink: "Explore on GitHub",
         projectList: [
-            { title: "Service Monitor", role: "Architecture & Dev", desc: "Critical platform modernization. Monolith migration to React + Vite + Spring Boot.", tags: ["React", "Java", "Spring Boot"] },
-            { title: "AKS Orchestrator", role: "DevOps", desc: "Microservice to launch processes in Kubernetes pods with logging and metrics.", tags: ["K8s", "Go", "Docker"] },
-            { title: "Integration Framework", role: "Backend", desc: "Robust client for internal APIs with error handling, retries, and timeouts.", tags: ["Java", "Resilience4j"] },
-            { title: "Chatbox Data Assist", role: "Architecture", desc: "Data query service with OpenAI integration.", tags: ["Python", "OpenAI"] },
-            { title: "Terraform Multi-env", role: "DevOps", desc: "Modular infrastructure as code for Dev, QA, and Prod with secure state management.", tags: ["Terraform", "Azure"] },
-            { title: "Personal Landings", role: "Fullstack", desc: "Rapid website development for startups using Vite and Tailwind.", tags: ["React", "Tailwind"] }
+            {
+                id: "metropolitan",
+                title: "Metropolitan Fashion Chile",
+                role: "Fullstack Architecture & DevOps",
+                desc: "Comprehensive platform for the curation and management of models and designers for the prestigious Metropolitan Fashion Chile (Santiago Haute Couture) event. Features public applicant portal, multi-role RBAC admin control panel (Master, Coordinator, Designer, Staff), relational database, and containerized deployment with Docker and Nginx.",
+                tags: ["React 18", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Docker", "Tailwind CSS"],
+                featured: true,
+                badge: "In Production",
+                metric: "Public Portal + Control Core RBAC",
+                link: null
+            },
+            {
+                id: "ai-assist",
+                title: "Chatbox Data Assist & AI Agents",
+                role: "AI Engineering & Backend",
+                desc: "Intelligent analytics and data retrieval system powered by OpenAI models and Python agent orchestration. Features contextual retrieval (RAG), strict schema validation, and autonomous workflow execution.",
+                tags: ["Python", "OpenAI API", "LangChain", "FastAPI", "RAG", "Autonomous Agents"],
+                featured: true,
+                badge: "AI Powered",
+                metric: "LLM Pipeline & RAG",
+                link: null
+            },
+            {
+                id: "monitor",
+                title: "Mission-Critical Service Monitor",
+                role: "Architecture & Development",
+                desc: "Enterprise platform modernization. Decoupled legacy monolith into a modern React + Vite frontend and reactive Java Spring Boot microservices with comprehensive observability.",
+                tags: ["React", "Java", "Spring Boot", "Microservices", "Observability"],
+                featured: false,
+                badge: "Microservices",
+                metric: "Monolith to Cloud Native",
+                link: null
+            },
+            {
+                id: "aks",
+                title: "AKS Process Orchestrator",
+                role: "DevOps & Cloud Native",
+                desc: "Specialized microservice for dynamic provisioning, governance, and real-time monitoring of workloads inside isolated Azure Kubernetes Service (AKS) pods with centralized logging.",
+                tags: ["Kubernetes (AKS)", "Go", "Docker", "Azure", "Cloud Native"],
+                featured: false,
+                badge: "DevOps",
+                metric: "Dynamic Pod Provisioning",
+                link: null
+            },
+            {
+                id: "terraform",
+                title: "Multi-Environment Terraform IaC",
+                role: "Infrastructure as Code",
+                desc: "Structured, reusable Terraform modules for automated Azure cloud infrastructure provisioning across Dev, QA, and Production with secure state separation.",
+                tags: ["Terraform", "Azure", "IaC", "HCL", "DevOps"],
+                featured: false,
+                badge: "IaC",
+                metric: "Dev / QA / Prod Automated",
+                link: null
+            },
+            {
+                id: "framework",
+                title: "Resilient Integration Framework",
+                role: "Backend Architecture",
+                desc: "Hardened client framework for internal API consumption with enterprise fault tolerance: Resilience4j circuit breaking, smart retry policies, and controlled fallbacks.",
+                tags: ["Java", "Resilience4j", "Spring Boot", "REST APIs"],
+                featured: false,
+                badge: "Resilience",
+                metric: "Zero Downtime Integrations",
+                link: null
+            },
+            {
+                id: "landings",
+                title: "Bento Design Portfolio & Web Apps",
+                role: "Frontend Engineering",
+                desc: "High-impact web applications built with modular Bento Grid design, 100 Lighthouse performance, responsive layout, and smooth cinematic micro-interactions.",
+                tags: ["React", "Tailwind CSS", "Vite", "Bento Grid", "UI/UX"],
+                featured: false,
+                badge: "Frontend",
+                metric: "Blazing Fast & Accessible",
+                link: "https://github.com/Estirp3/POrtafolioReac"
+            }
         ],
 
         // Learnings & Hobbies
-        learningsTitle: "Learning",
-        hobbiesTitle: "Hobbies",
-        hobbiesList: ["3D Printing & Maker", "Content Creation"],
+        learningsTitle: "Research & Continuous Learning",
+        learningTopics: [
+            "Autonomous Agents & MCP (Model Context Protocol)",
+            "Advanced RAG & Vector Embeddings",
+            "Kubernetes Patterns & AKS Architecture",
+            "System Design & High-Scalability"
+        ],
+        hobbiesTitle: "Interests & Maker Hobbies",
+        hobbiesList: [
+            { title: "3D Printing & Maker", desc: "Physical modeling and prototyping" },
+            { title: "Tech Content Creation", desc: "Sharing insights on AI & software" }
+        ],
 
         // Contact
-        contactTitle: "Contact",
-        contactDesc: "Do you have an interesting project or want to talk about software architecture? Let's talk.",
-        letsTalk: "Let's Talk"
+        contactTitle: "Contact & Collaboration",
+        contactHeadline: "Have an architectural challenge, web project, or AI initiative?",
+        contactDesc: "Let's connect to build impactful technical solutions: from fullstack production platforms and microservices to intelligent AI agent integrations and cloud infrastructure.",
+        responseTime: "Usually replying within 24 hours.",
+        letsTalk: "Let's Talk",
+        contactTags: ["Fullstack Architecture", "AI Integrations", "Metropolitan Project", "Java / Node Backend", "Kubernetes & DevOps"]
     }
 };
